@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Craque Gamer - PS3</title>
+<style>
+html,body{margin:0;padding:0;background:#10131a;color:#fff;font-family:Arial,sans-serif;font-size:18px}
+body{max-width:900px;margin:auto}
+header{background:#171b25;padding:14px;border-bottom:2px solid #2d6cdf}
+.logo{font-size:28px;font-weight:bold}
+.logo span{color:#55a7ff}
+nav{margin-top:12px}
+nav a{color:#fff;text-decoration:none;padding:9px 10px;display:inline-block;background:#222838;margin:3px}
+section{padding:22px 14px}
+.hero{background:#151a24;text-align:center}
+.tag{font-size:14px;color:#55a7ff}
+h1{font-size:38px;margin:10px 0}
+h2{font-size:27px}
+.button{display:inline-block;background:#2d6cdf;color:#fff;text-decoration:none;padding:12px 18px;margin-top:10px}
+.small{padding:9px 12px}
+.grid{display:block}
+.card,.info{background:#191e29;border:1px solid #303747;padding:16px;margin:12px 0}
+.cover{background:#252c3b;padding:28px;text-align:center;font-weight:bold}
+.chat{background:#191e29;border:1px solid #303747;padding:14px}
+.messages{height:260px;overflow:auto;background:#0d1016;padding:10px;margin-bottom:10px}
+.msg{padding:8px;margin:6px 0;background:#202635}
+input{width:65%;padding:12px;font-size:18px}
+button{padding:12px 16px;font-size:18px;background:#2d6cdf;color:white;border:0}
+footer{padding:18px;text-align:center;color:#aaa;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">CRAQUE <span>GAMER</span></div>
+<nav>
+<a href="#inicio">Início</a>
+<a href="#jogos">Jogos</a>
+<a href="#noticias">Notícias</a>
+<a href="#homebrew">Homebrews</a>
+<a href="#temas">Temas</a>
+</nav>
+</header>
+
+<main id="inicio">
+<section class="hero">
+<p class="tag">CENTRAL PLAYSTATION 3</p>
+<h1>Craque Gamer</h1>
+<p>Site leve preparado para teste no navegador do PS3.</p>
+<a class="button" href="#noticias">Abrir Chat de Notícias</a>
+</section>
+
+<section id="jogos">
+<h2>🎮 Jogos</h2>
+<div class="card"><h3>Seu jogo aqui</h3><p>Adicione nome, região e descrição.</p></div>
+</section>
+
+<section id="noticias">
+<h2>📰 Chat de Notícias</h2>
+<div class="chat">
+<div id="messages" class="messages">
+<div class="msg"><b>Craque Gamer:</b> Bem-vindo ao Chat de Notícias!</div>
+<div class="msg">Digite uma mensagem abaixo para testar o chat.</div>
+</div>
+<input id="message" type="text" maxlength="120" placeholder="Digite sua mensagem">
+<button onclick="sendMessage()">Enviar</button>
+</div>
+</section>
+
+<section id="homebrew">
+<h2>🛠️ Homebrews</h2>
+<div class="info">Área para aplicativos e homebrews autorizados.</div>
+</section>
+
+<section id="temas">
+<h2>🎨 Temas</h2>
+<div class="info">Área para temas e imagens compatíveis com PS3.</div>
+</section>
+</main>
+
+<footer>© 2026 Craque Gamer - Versão leve para navegador do PS3.</footer>
+
+<script>
+function sendMessage(){
+ var input=document.getElementById("message");
+ var text=input.value.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+ if(!text){return;}
+ var box=document.getElementById("messages");
+ var div=document.createElement("div");
+ div.className="msg";
+ div.innerHTML="<b>Você:</b> "+text;
+ box.appendChild(div);
+ box.scrollTop=box.scrollHeight;
+ input.value="";
+}
+document.getElementById("message").onkeypress=function(e){
+ if(e.keyCode===13){sendMessage();}
+};
+</script>
+</body>
+</html>
